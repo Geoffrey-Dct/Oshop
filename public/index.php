@@ -2,6 +2,8 @@
 
 // Le FrontController : point d'entrée unique de l'application
 
+// Autoload de composer pour charger les classe et fonctions situés dans le dossier vender
+require __DIR__ . '/../vendor/autoload.php';
 // On charge nos classes
 require __DIR__ . '/../app/Controllers/MainController.php';
 require __DIR__ . '/../app/Controllers/CatalogController.php';
@@ -32,7 +34,7 @@ $routes = [
         'method' => 'category',
     ],
 ];
-
+dump($routes);
 // Destination de la route
 $destination = $routes[$page];
 

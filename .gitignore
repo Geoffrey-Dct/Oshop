@@ -1,1 +1,4 @@
 import_trello.php
+
+# Le dossier vendor doit etre ignoré
+/vendor/
