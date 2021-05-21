@@ -20,6 +20,50 @@ else {
     $page = '/';
 }
 
+// utilisation d'altorouter
+
+$router =  new AltoRouter();
+// on définit le chemin de base de notre dossier de travail sur localhost
+// $router->setBasePath('/trinity/s05/S05-projet-oShop-jc-oclock/public/');
+// On rend dynamique "le chemin Web" du dossier public
+// via la variable $_SERVER['BASE_URI'] fournie par Apache/.htaccess
+// Notre code fonctionnera donc sur n'importe quelle VM et même en prod (ex. sur http://oclock.io)
+$router->setBasePath($_SERVER['BASE_URI']);
+
+// Notre route pour la home
+$router->map(
+    // Méthode HTTP
+    'GET',
+    // La motif de l'URL (la route)
+    '/',
+    // Destination de la route
+    [
+        'controller' => 'MainController',
+        'method' => 'home',
+    ],
+    // Nom interne de la route
+    'home'
+);
+
+// Notre route pour la category
+$router->map(
+    // Méthode HTTP
+    'GET',
+    // La motif de l'URL (la route)
+    '/category',
+    // Destination de la route
+    [
+        'controller' => 'CatalogController',
+        'method' => 'category',
+    ],
+    // Nom interne de la route
+    'category'
+);
+
+$match=$router->match();
+
+
+
 // Définissons/configurons des routes pour "auiguiller notre code"
 // C'est la page demandée qui va conditionner la "destination"
 // de la dite route
@@ -34,7 +78,7 @@ $routes = [
         'method' => 'category',
     ],
 ];
-dump($routes);
+
 // Destination de la route
 $destination = $routes[$page];
 
