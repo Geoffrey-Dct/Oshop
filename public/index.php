@@ -8,17 +8,7 @@ require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../app/Controllers/MainController.php';
 require __DIR__ . '/../app/Controllers/CatalogController.php';
 
-// Récupérer le paramètre GET "page" de l'URL
-// Il nous indique la page/vue à afficher, donc le template à utiliser
 
-if (isset($_GET['page'])) {
-    // Page présente dans l'URL
-    $page = $_GET['page'];
-}
-else {
-    // Sinon, page par défaut = index.php
-    $page = '/';
-}
 
 // utilisation d'altorouter
 
@@ -64,23 +54,8 @@ $match=$router->match();
 
 
 
-// Définissons/configurons des routes pour "auiguiller notre code"
-// C'est la page demandée qui va conditionner la "destination"
-// de la dite route
-$routes = [
-    '/' => [
-        'controller' => 'MainController',
-        'method' => 'home',
-    ],
-    
-    '/category' => [
-        'controller' => 'CatalogController',
-        'method' => 'category',
-    ],
-];
-
 // Destination de la route
-$destination = $routes[$page];
+$destination = $match['target'];
 
 // On détermine le contrôleur à appeler
 $controllerName = $destination['controller'];
