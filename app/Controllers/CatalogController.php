@@ -5,10 +5,18 @@
 class CatalogController
 {
     // Page catégorie
-    public function category()
+    public function category($param)
     {
+        // on recup l'id de la catégorie
+        $categoryId = $param['id'];
+
+         // Les données de la vue
+         $viewVars = [
+            'category_id' => $categoryId,
+        ];
+
         // On appelle la méthode qui affiche le template
-        $this->show('category');
+        $this->show('category', $viewVars);
     }
 
     // Fonction qui affiche le template voulu

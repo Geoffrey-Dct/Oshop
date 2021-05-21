@@ -39,8 +39,8 @@ $router->map(
 $router->map(
     // Méthode HTTP
     'GET',
-    // La motif de l'URL (la route)
-    '/category',
+    // La motif de l'URL (la route) avec paramètre dynamique
+    '/category/[i:id]',
     // Destination de la route
     [
         'controller' => 'CatalogController',
@@ -68,5 +68,5 @@ $methodName = $destination['method'];
 $controller = new $controllerName(); // Par ex. new MainController()
 
 // 2. On appelle la méthode souhaitée du contrôleur
-$controller->$methodName(); // Par ex. ->home();
+$controller->$methodName($match['params']); // Par ex. ->home();
 
