@@ -70,3 +70,4 @@ $controller = new $controllerName(); // Par ex. new MainController()
 // 2. On appelle la méthode souhaitée du contrôleur
 $controller->$methodName($match['params']); // Par ex. ->home();
 
+dump($match['params']);
