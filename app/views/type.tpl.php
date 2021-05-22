@@ -1,0 +1,1 @@
+<h1>Nom du type</h1>

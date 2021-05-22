@@ -7,14 +7,17 @@ class MainController
     // Page d'accueil
     public function home()
     {
+        $viewVars=[];
         // On appelle la méthode qui affiche le template
-        $this->show('home');
+        $this->show('home',$viewVars);
     }
 
     // Fonction qui affiche le template voulu
     // Avec les données associées à ce template
     public function show($viewName, $viewVars = []) {
 
+
+        $absoluteURL = $_SERVER['BASE_URI'];
         // $viewVars est disponible dans chaque fichier de vue
 
         // En-tête

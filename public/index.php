@@ -50,9 +50,53 @@ $router->map(
     'category'
 );
 
+$router->map(
+    // Méthode HTTP
+    'GET',
+    // La motif de l'URL (la route) avec paramètre dynamique
+    '/type/[i:id]',
+    // Destination de la route
+    [
+        'controller' => 'CatalogController',
+        'method' => 'type',
+    ],
+    // Nom interne de la route
+    'type'
+);
+
+$router->map(
+    // Méthode HTTP
+    'GET',
+    // La motif de l'URL (la route) avec paramètre dynamique
+    '/brand/[i:id]',
+    // Destination de la route
+    [
+        'controller' => 'CatalogController',
+        'method' => 'brand',
+    ],
+    // Nom interne de la route
+    'brand'
+);
+
+$router->map(
+    // Méthode HTTP
+    'GET',
+    // La motif de l'URL (la route) avec paramètre dynamique
+    '/product/[i:id]',
+    // Destination de la route
+    [
+        'controller' => 'CatalogController',
+        'method' => 'product',
+    ],
+    // Nom interne de la route
+    'product'
+);
+
+
+
 $match=$router->match();
 
-
+//dd($match['params']);
 
 // Destination de la route
 $destination = $match['target'];
@@ -70,4 +114,3 @@ $controller = new $controllerName(); // Par ex. new MainController()
 // 2. On appelle la méthode souhaitée du contrôleur
 $controller->$methodName($match['params']); // Par ex. ->home();
 
-dump($match['params']);
