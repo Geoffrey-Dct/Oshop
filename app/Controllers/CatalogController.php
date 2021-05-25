@@ -10,19 +10,26 @@ class CatalogController
         // on recup l'id de la catégorie
         $categoryId = $param['id'];
 
+         // On va chercher les données de la catégorie en BDD
+         $productModel = new Product();
+         $products = $productModel->findAll();
+         
+        
          // Les données de la vue
          $viewVars = [
-            'category_id' => $categoryId,
-        ];
-
-        // On appelle la méthode qui affiche le template
-        $this->show('category_products', $viewVars);
+             'category_id' => $categoryId,
+             'products'=>$products,
+             
+         ];
+ 
+         // On appelle la méthode qui affiche le template
+         $this->show('category_products', $viewVars);
     }
 
-    // Page catégorie
+    // Page type
     public function type($param)
     {
-        // on recup l'id de la catégorie
+        // on recup l'id du type
         $typeId = $param['id'];
 
         // Les données de la vue
@@ -34,9 +41,10 @@ class CatalogController
         $this->show('type_products', $viewVars);
     }
 
+    // page marque
     public function brand($param)
     {
-        // on recup l'id de la catégorie
+        // on recup l'id de la marque
         $brandId = $param['id'];
 
         // Les données de la vue
@@ -50,16 +58,15 @@ class CatalogController
 
     public function product($param)
     {
-        // on recup l'id de la catégorie
+        // on recup l'id du produit
         $productId = $param['id'];
 
-        // Les données de la vue
-        $viewVars = [
-            'product_id' => $productId,
-        ];
+        // On va chercher les données du produit en BDD
+        $productModel = new Product();
+        $product = $productModel->find($productId);
 
-        // On appelle la méthode qui affiche le template
-        $this->show('product', $viewVars);
+        //dd($product);
+
     }
 
 

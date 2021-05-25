@@ -5,6 +5,10 @@
 // Autoload de composer pour charger les classe et fonctions situés dans le dossier vender
 require __DIR__ . '/../vendor/autoload.php';
 // On charge nos classes
+require __DIR__ .'/../app/Utils/Database.php';
+require __DIR__ . '/../app/Models/Brand.php';
+require __DIR__ . '/../app/Models/Product.php';
+require __DIR__ . '/../app/Models/Category.php';
 require __DIR__ . '/../app/Controllers/MainController.php';
 require __DIR__ . '/../app/Controllers/CatalogController.php';
 
@@ -95,6 +99,16 @@ $router->map(
     'product'
 );
 
+//Page test
+$router->map(
+    'GET',
+    '/test/[i:id]',
+    [
+        'controller' => 'MainController',
+        'method' => 'test',
+    ],
+    'test'
+);
 
 
 $match=$router->match();

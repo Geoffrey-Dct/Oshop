@@ -18,6 +18,19 @@ class MainController
         $this->show('legal_notice');
     }
 
+    //test
+    public function test($param)
+    {
+        // on recup l'id du produit
+        $testId = $param['id'];
+
+        // On va chercher les données du produit en BDD
+        $categoryModel = new Category();
+        $category = $categoryModel->find($testId);
+
+        dd($category);
+    }
+
     // Fonction qui affiche le template voulu
     // Avec les données associées à ce template
     public function show($viewName, $viewVars = []) {
