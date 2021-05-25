@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="http://localhost/trinity/S05/S05-projet-oShop-Geoffrey-Dct/public/css/bootstrap.min.css">
-  <link rel="stylesheet" href="http://localhost/trinity/S05/S05-projet-oShop-Geoffrey-Dct/public/css/font-awesome.min.css">
-  <link rel="stylesheet" href="http://localhost/trinity/S05/S05-projet-oShop-Geoffrey-Dct/public/css/styles.css">
+  <link rel="stylesheet" href="<?=$absoluteURL?>/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?=$absoluteURL?>/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?=$absoluteURL?>/css/styles.css">
   <title>oShop</title>
 </head>
 

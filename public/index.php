@@ -26,7 +26,7 @@ $router->map(
     'GET',
     // La motif de l'URL (la route)
     '/',
-    // Destination de la route
+    // Destination de la route = page que l'on souhaite afficher
     [
         'controller' => 'MainController',
         'method' => 'home',
@@ -35,12 +35,24 @@ $router->map(
     'home'
 );
 
-// Notre route pour la category
+// Mentions légales
 $router->map(
-    // Méthode HTTP
+    'GET',
+    '/mentions-legales/',
+    [
+        'controller' => 'MainController',
+        'method' => 'legalNotice',
+    ],
+    // Nom interne de la route
+    'legal-notice'
+);
+
+// Notre route pour la categorie
+$router->map(
     'GET',
     // La motif de l'URL (la route) avec paramètre dynamique
-    '/category/[i:id]',
+    // https://altorouter.com/usage/mapping-routes.html
+    '/catalogue/categorie/[i:id]',
     // Destination de la route
     [
         'controller' => 'CatalogController',
@@ -50,45 +62,36 @@ $router->map(
     'category'
 );
 
+// Produits par type
 $router->map(
-    // Méthode HTTP
     'GET',
-    // La motif de l'URL (la route) avec paramètre dynamique
-    '/type/[i:id]',
-    // Destination de la route
+    '/catalogue/type/[i:id]',
     [
         'controller' => 'CatalogController',
         'method' => 'type',
     ],
-    // Nom interne de la route
     'type'
 );
 
+// Les produits par marque
 $router->map(
-    // Méthode HTTP
     'GET',
-    // La motif de l'URL (la route) avec paramètre dynamique
-    '/brand/[i:id]',
-    // Destination de la route
+    '/catalogue/marque/[i:id]',
     [
         'controller' => 'CatalogController',
         'method' => 'brand',
     ],
-    // Nom interne de la route
     'brand'
 );
 
+// Page produit
 $router->map(
-    // Méthode HTTP
     'GET',
-    // La motif de l'URL (la route) avec paramètre dynamique
-    '/product/[i:id]',
-    // Destination de la route
+    '/catalogue/produit/[i:id]',
     [
         'controller' => 'CatalogController',
         'method' => 'product',
     ],
-    // Nom interne de la route
     'product'
 );
 
@@ -96,6 +99,8 @@ $router->map(
 
 $match=$router->match();
 
+// Si une route correspond
+if ($match !== false) {
 //dd($match['params']);
 
 // Destination de la route
@@ -113,4 +118,9 @@ $controller = new $controllerName(); // Par ex. new MainController()
 
 // 2. On appelle la méthode souhaitée du contrôleur
 $controller->$methodName($match['params']); // Par ex. ->home();
-
+}
+else {
+    // On envoie une 404
+    http_response_code(404);
+    echo 'Page non trouvée.';
+}

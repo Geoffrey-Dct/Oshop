@@ -16,7 +16,7 @@ class CatalogController
         ];
 
         // On appelle la méthode qui affiche le template
-        $this->show('category', $viewVars);
+        $this->show('category_products', $viewVars);
     }
 
     // Page catégorie
@@ -31,7 +31,7 @@ class CatalogController
         ];
 
         // On appelle la méthode qui affiche le template
-        $this->show('type', $viewVars);
+        $this->show('type_products', $viewVars);
     }
 
     public function brand($param)
@@ -45,7 +45,7 @@ class CatalogController
         ];
 
         // On appelle la méthode qui affiche le template
-        $this->show('brand', $viewVars);
+        $this->show('brand_products', $viewVars);
     }
 
     public function product($param)

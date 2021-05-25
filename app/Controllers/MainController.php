@@ -12,6 +12,12 @@ class MainController
         $this->show('home',$viewVars);
     }
 
+    // Mentions légales
+    public function legalNotice()
+    {
+        $this->show('legal_notice');
+    }
+
     // Fonction qui affiche le template voulu
     // Avec les données associées à ce template
     public function show($viewName, $viewVars = []) {

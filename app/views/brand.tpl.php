@@ -1,1 +1,0 @@
-<h1>Nom de la marque</h1>

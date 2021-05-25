@@ -112,13 +112,13 @@
           <div class="col-md-6">
             <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-right">
               <li class="list-inline-item">
-                <img src="images/visa.svg" alt="..." class="payment-icon">
+                <img src="<?=$absoluteURL?>/images/visa.svg" alt="..." class="payment-icon">
               </li>
               <li class="list-inline-item">
-                <img src="images/mastercard.svg" alt="..." class="payment-icon">
+                <img src="<?=$absoluteURL?>/images/mastercard.svg" alt="..." class="payment-icon">
               </li>
               <li class="list-inline-item">
-                <img src="images/paypal.svg" alt="..." class="payment-icon">
+                <img src="<?=$absoluteURL?>/images/paypal.svg" alt="..." class="payment-icon">
               </li>
             </ul>
           </div>
@@ -128,10 +128,10 @@
   </footer>
 
   <!-- JS -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="<?=$absoluteURL?>/js/jquery.min.js"></script>
+  <script src="<?=$absoluteURL?>/js/popper.min.js"></script>
+  <script src="<?=$absoluteURL?>/js/bootstrap.min.js"></script>
+  <script src="<?=$absoluteURL?>/js/app.js"></script>
 </body>
 
 </html>
