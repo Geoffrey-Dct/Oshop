@@ -2,7 +2,10 @@
 
 class CoreController
 {
-    protected function show($viewName, $viewVars = []) {
+    // Fonction qui affiche le template voulu
+    // Avec les données associées à ce template
+    protected function show($viewName, $viewVars = [])
+    {
 
         $absoluteURL = $_SERVER['BASE_URI'];
         // On récupère notre variable $router créé "au niveau global de PHP" càd dans index.php
@@ -13,6 +16,9 @@ class CoreController
         $brandModel = new Brand();
         $topFiveBrands = $brandModel->findTopFiveFooter();
         //dd($topFiveBrands);
+
+        $typeModel = new Type();
+        $topFiveTypes = $typeModel->findTopFiveFooter();
         // En-tête
         require __DIR__ . '/../views/header.tpl.php';
         // Inclusion du template pour rendu HTML renvoyé par le serveur

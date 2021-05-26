@@ -19,7 +19,31 @@
      private $footer_order;
      
      
+     /**
+      * Les 5 marques du pied de page
+      */
+      public function findTopFiveFooter()
+      {
+          // seule la requète change par rapport à findAll
+           // Seule la requête change par rapport à findAll()
+        $sql = 'SELECT *
+        FROM `type`
+        WHERE `footer_order` != 0
+        ORDER BY `footer_order` ASC
+        LIMIT 5';
 
+        // On récupère la connexion à PDO
+        $pdo = Database::getPDO();
+
+        // On exécute la requête
+        $pdoStatement = $pdo->query($sql);
+
+        // On récupère un objet de type Brand
+        $types = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Type');
+
+        // On le renvoie
+        return $types;
+      }
 /**
      * Get one type by its id
      * 
@@ -67,13 +91,7 @@
         return $types;
     }
 
-     /**
-      * Get *! Les propriétés sont en snake_case au lieu de camelCase
-      */ 
-     public function getId()
-     {
-          return $this->id;
-     }
+     
 
 
      /**
