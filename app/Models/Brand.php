@@ -18,6 +18,31 @@
      private $name;
      private $footer_order;
    
+     /**
+      * Les 5 marques du pied de page
+      */
+      public function findTopFiveFooter()
+      {
+          // seule la requète change par rapport à findAll
+           // Seule la requête change par rapport à findAll()
+        $sql = 'SELECT *
+        FROM `brand`
+        WHERE `footer_order` != 0
+        ORDER BY `footer_order` ASC
+        LIMIT 5';
+
+        // On récupère la connexion à PDO
+        $pdo = Database::getPDO();
+
+        // On exécute la requête
+        $pdoStatement = $pdo->query($sql);
+
+        // On récupère un objet de type Brand
+        $brands = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Brand');
+
+        // On le renvoie
+        return $brands;
+      }
     
      /**
           * Get one brand by its id

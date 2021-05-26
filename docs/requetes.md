@@ -145,5 +145,3 @@ LEFT JOIN category ON product.category_id = category.id
 INNER JOIN type ON product.type_id = type.id
 WHERE product.id = 5
 ```
-
-Voir : https://sql.sh/cours/jointures
