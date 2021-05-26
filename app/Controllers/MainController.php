@@ -27,8 +27,24 @@ class MainController
         // On va chercher les données du produit en BDD
         $categoryModel = new Category();
         $category = $categoryModel->find($testId);
+        dump($category);
 
-        dd($category);
+        $categories = $categoryModel->findAll();
+        dump($categories);
+
+        $typeModel = new Type();
+        $type = $typeModel->find($testId);
+        dump($type);
+
+        $types = $typeModel->findAll();
+        dump($types);
+
+        $brandModel = new Brand();
+        $brand = $brandModel->find($testId);
+        dump($brand);
+
+        $brands = $brandModel->findAll();
+        dump($brands);
     }
 
     // Fonction qui affiche le template voulu
