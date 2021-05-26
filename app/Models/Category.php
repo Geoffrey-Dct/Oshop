@@ -4,7 +4,7 @@
  * Représention de la table SQL 'category'
  */
 
- class Category
+ class Category extends CoreModel
  {
      /**
       * Les propriétés = les colonnes
@@ -14,13 +14,13 @@
       *! Les propriétés sont en snake_case au lieu de camelCase
       * ! c'est une exception à notre convention pour être raccord les colonnes
       */
-     private $id;
+     
      private $name;
      private $subtitle;
      private $picture;
      private $home_order;
-     private $created_at;
-     private $updated_at;
+     
+    
 
 /**
      * Get one category by its id
@@ -68,14 +68,7 @@
         return $categories;
     }
 
-     /**
-      * Get *! Les propriétés sont en snake_case au lieu de camelCase
-      */ 
-     public function getId()
-     {
-          return $this->id;
-     }
-
+     
     
 
      /**
@@ -158,43 +151,5 @@
           return $this;
      }
 
-     /**
-      * Get the value of created_at
-      */ 
-     public function getCreated_at()
-     {
-          return $this->created_at;
-     }
-
-     /**
-      * Set the value of created_at
-      *
-      * @return  self
-      */ 
-     public function setCreated_at($created_at)
-     {
-          $this->created_at = $created_at;
-
-          return $this;
-     }
-
-     /**
-      * Get the value of updated_at
-      */ 
-     public function getUpdated_at()
-     {
-          return $this->updated_at;
-     }
-
-     /**
-      * Set the value of updated_at
-      *
-      * @return  self
-      */ 
-     public function setUpdated_at($updated_at)
-     {
-          $this->updated_at = $updated_at;
-
-          return $this;
-     }
+     
 }

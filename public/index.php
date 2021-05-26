@@ -6,6 +6,8 @@
 require __DIR__ . '/../vendor/autoload.php';
 // On charge nos classes
 require __DIR__ . '/../app/Utils/Database.php';
+// Attention on charge le modoel parent avant l"enfant.
+require __DIR__ . '/../app/Models/CoreModel.php';
 require __DIR__ . '/../app/Models/Brand.php';
 require __DIR__ . '/../app/Models/Product.php';
 require __DIR__ . '/../app/Models/Category.php';
