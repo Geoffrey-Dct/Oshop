@@ -2,7 +2,7 @@
 
 // Gestion de nos pages
 
-class MainController
+class MainController extends CoreController
 {
     // Page d'accueil
     public function home()
@@ -49,23 +49,24 @@ class MainController
 
     // Fonction qui affiche le template voulu
     // Avec les données associées à ce template
-    private function show($viewName, $viewVars = []) {
+    // private function show($viewName, $viewVars = []) {
 
 
-        $absoluteURL = $_SERVER['BASE_URI'];
-        // $viewVars est disponible dans chaque fichier de vue
+    //     $absoluteURL = $_SERVER['BASE_URI'];
+    //     // $viewVars est disponible dans chaque fichier de vue
+    //     // On récupère notre variable $router créé "au niveau global de PHP" càd dans index.php
+    //     global $router;
+    //     // On va chercher les 5 marques du pied de page
+    //     // qui seront directement accessible dans footer.tpl.php
+    //     $brandModel = new Brand();
+    //     $topFiveBrands = $brandModel->findTopFiveFooter();
+    //     //dd($topFiveBrands);
         
-        // On va chercher les 5 marques du pied de page
-        // qui seront directement accessible dans footer.tpl.php
-        $brandModel = new Brand();
-        $topFiveBrands = $brandModel->findTopFiveFooter();
-        //dd($topFiveBrands);
-        
-        // En-tête
-        require __DIR__ . '/../views/header.tpl.php';
-        // Inclusion du template pour rendu HTML renvoyé par le serveur
-        require __DIR__ . '/../views/' . $viewName . '.tpl.php';
-        // Pied de page
-        require __DIR__ . '/../views/footer.tpl.php';
-    }
+    //     // En-tête
+    //     require __DIR__ . '/../views/header.tpl.php';
+    //     // Inclusion du template pour rendu HTML renvoyé par le serveur
+    //     require __DIR__ . '/../views/' . $viewName . '.tpl.php';
+    //     // Pied de page
+    //     require __DIR__ . '/../views/footer.tpl.php';
+    // }
 }

@@ -82,7 +82,7 @@
             <ul class="list-unstyled">
             
             <?php foreach ($topFiveBrands as $brand): ?>
-              <li><a href="<?=$absoluteURL?>/catalogue/marque/<?=$brand->getId()?>" class="text-muted"><?= $brand->getName(); ?></a></li>
+              <li><a href="<?= $router->generate('brand', ['id' => $brand->getId()])?>" class="text-muted"><?= $brand->getName(); ?></a></li>
             <?php endforeach ?>
 
             </ul>
