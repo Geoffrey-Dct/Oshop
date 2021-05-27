@@ -63,9 +63,20 @@ class CatalogController extends CoreController
 
         // On va chercher les données du produit en BDD
         $productModel = new Product();
-        $product = $productModel->find($productId);
+        //$product = $productModel->find($productId);
 
-        //dd($product);
+      
+
+        $product = $productModel->findJoinedToAll($productId);
+         //dd($product);
+
+         //todo Appeller la methode show()
+         $viewVars = [
+            
+            'product'=> $product
+         ];
+
+         $this->show('product', $viewVars);
 
     }
 

@@ -39,7 +39,7 @@ $router->map(
         'controller' => 'MainController',
         'method' => 'home',
     ],
-    // Nom interne de la route
+    // Nom interne de la route pour générer l'url via $router->generate()
     'home'
 );
 
@@ -51,7 +51,7 @@ $router->map(
         'controller' => 'MainController',
         'method' => 'legalNotice',
     ],
-    // Nom interne de la route
+    // Nom interne de la route pour générer l'url via $router->generate()
     'legal-notice'
 );
 
@@ -66,7 +66,7 @@ $router->map(
         'controller' => 'CatalogController',
         'method' => 'category',
     ],
-    // Nom interne de la route
+    // Nom interne de la route pour générer l'url via $router->generate()
     'category'
 );
 

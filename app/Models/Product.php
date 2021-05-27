@@ -77,7 +77,30 @@ class Product extends CoreModel
         return $products;
     }
 
-    
+    /**
+     * Find one product with category name, type name, brand name
+     */
+    public function findJoinedToAll(int $id)
+    {
+        $sql = "SELECT product.*, brand.name AS brand_name, category.name AS category_name, type.name AS type_name
+        FROM `product`
+        INNER JOIN brand ON product.brand_id = brand.id
+        LEFT JOIN category ON product.category_id = category.id
+        INNER JOIN type ON product.type_id = type.id
+        WHERE product.id = {$id}";
+        
+        // On récupère la connexion à PDO
+        $pdo = Database::getPDO();
+
+        // On exécute la requête
+        $pdoStatement = $pdo->query($sql);
+
+        // On récupère un objet de type Product
+        $product = $pdoStatement->fetchObject('Product');
+
+        // On le renvoie
+        return $product;
+    }
 
   
     /**
