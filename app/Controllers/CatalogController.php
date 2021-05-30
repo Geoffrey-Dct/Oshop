@@ -12,13 +12,19 @@ class CatalogController extends CoreController
 
          // On va chercher les données de la catégorie en BDD
          $productModel = new Product();
-         $products = $productModel->findAll();
+         $products = $productModel->findAllToSameCateg($categoryId);
          
-        
+        //dd($products[0]->category_name);
+        $categoryModel = new Category();
+        $category = $categoryModel->find($categoryId);
          // Les données de la vue
+
+        
          $viewVars = [
              'category_id' => $categoryId,
              'products'=>$products,
+             'category'=>$category
+        
              
          ];
  
@@ -32,9 +38,17 @@ class CatalogController extends CoreController
         // on recup l'id du type
         $typeId = $param['id'];
 
+        $productModel = new Product();
+        $products = $productModel->findAllToSameType($typeId);
+        //dd($products);
+        $typeModel = new Type();
+        $type = $typeModel->find($typeId);
+
         // Les données de la vue
         $viewVars = [
-            'type_id' => $typeId,
+            
+            'type' => $type,
+            'products'=> $products
         ];
 
         // On appelle la méthode qui affiche le template
@@ -47,9 +61,17 @@ class CatalogController extends CoreController
         // on recup l'id de la marque
         $brandId = $param['id'];
 
+        $productModel = new Product();
+        $products = $productModel->findAllToSameBrand($brandId);
+
+        $brandModel = new Brand();
+        $brand = $brandModel->find($brandId);
+
         // Les données de la vue
         $viewVars = [
             'brand_id' => $brandId,
+            'products' => $products,
+            'brand' => $brand
         ];
 
         // On appelle la méthode qui affiche le template

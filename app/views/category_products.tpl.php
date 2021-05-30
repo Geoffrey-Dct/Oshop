@@ -3,15 +3,14 @@
       <!-- Breadcrumbs -->
       <ol class="breadcrumb justify-content-center">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active">Détente</li>
+        <li class="breadcrumb-item active"><?=$viewVars['category']->getName()?></li>
       </ol>
       <!-- Hero Content-->
       <div class="hero-content pb-5 text-center">
-        <h1 class="hero-heading">Catégorie #<?= $viewVars['category_id']; ?></h1>
+        <h1 class="hero-heading"><?= $viewVars['category']->getName()?></h1>
         <div class="row">
           <div class="col-xl-8 offset-xl-2">
-            <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-              incididunt.</p>
+            <p class="lead text-muted"><?=$viewVars['category']->getSubtitle()?></p>
           </div>
         </div>
       </div>
@@ -38,25 +37,7 @@
         </div>
       </header>
       <div class="row">
-      <?php foreach ($viewVars['products'] as $product): ?>
-        <!-- product-->
-        <div class="product col-xl-3 col-lg-4 col-sm-6">
-          <div class="product-image">
-            <a href="detail.html" class="product-hover-overlay-link">
-              <img src="<?= $product->getPicture(); ?>" alt="product" class="img-fluid">
-            </a>
-          </div>
-          <div class="product-action-buttons">
-            <a href="#" class="btn btn-outline-dark btn-product-left"><i class="fa fa-shopping-cart"></i></a>
-            <a href="detail.html" class="btn btn-dark btn-buy"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">Voir</span></a>
-          </div>
-          <div class="py-2">
-            <p class="text-muted text-sm mb-1"><?= $product->getCategory_id(); ?></p>
-            <h3 class="h6 text-uppercase mb-1"><a href="detail.html" class="text-dark"><?= $product->getName(); ?></a></h3><span class="text-muted"><?= $product->getPrice(); ?>&euro;</span>
-          </div>
-        </div>
-        <!-- /product-->
-        <?php endforeach; ?>
+     <?php include __DIR__ . "/inc/_product.php" ;?>
 
       </div>
       

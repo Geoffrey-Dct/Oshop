@@ -1,65 +1,35 @@
 <section>
     <div class="container-fluid">
       <div class="row mx-0">
-        <div class="col-md-6">
-          <div class="card border-0 text-white text-center"><img src="images/categ5.jpeg"
-              alt="Card image" class="card-img">
-            <div class="card-img-overlay d-flex align-items-center">
-              <div class="w-100 py-3">
-                <h2 class="display-3 font-weight-bold mb-4">Vintage</h2><a href="./catalogue/categorie/23" class="btn btn-light">Découvrir</a>
+        <?php for ($i = 2; $i <=3; $i++):?>
+          <div class="col-md-6">
+            <div class="card border-0 text-white text-center"><img src=<?= $absoluteURL.'/'.$viewVars['categories'][$i]->getPicture();?>
+                alt="Card image" class="card-img">
+              <div class="card-img-overlay d-flex align-items-center">
+                <div class="w-100 py-3">
+                  <h2 class="display-3 font-weight-bold mb-4"><?=$viewVars['categories'][$i]->getName();?></h2><a href="<?=$absoluteURL."/catalogue/categorie/{$viewVars['categories'][$i]->getId()}"?>" class="btn btn-light"><?=$viewVars['categories'][$i]->getSubtitle();?></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card border-0 text-white text-center"><img src="images/categ2.jpeg"
-              alt="Card image" class="card-img">
-            <div class="card-img-overlay d-flex align-items-center">
-              <div class="w-100 py-3">
-                <h2 class="display-3 font-weight-bold mb-4">Au travail</h2><a href="./category" class="btn btn-light">C'est parti</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php endfor;?>
+        
       </div>
+
       <div class="row mx-0">
-          
+       <?php for($i=3; $i<=5; $i++):?>   
         <div class="col-lg-4">
-          <div class="card border-0 text-center text-white"><img src="images/categ4.jpeg"
+          <div class="card border-0 text-center text-white"><img src="<?= $absoluteURL.'/'.$viewVars['categories'][$i]->getPicture();?>"
               alt="Card image" class="card-img">
             <div class="card-img-overlay d-flex align-items-center">
               <div class="w-100">
-                <h2 class="display-4 mb-4">Sortir</h2><a href="./category" class="btn btn-link text-white">Faire un tour
+                <h2 class="display-4 mb-4"><?=$viewVars['categories'][$i]->getName();?></h2><a href="<?=$absoluteURL."/catalogue/categorie/{$viewVars['categories'][$i]->getId()}"?>" class="btn btn-link text-white"><?=$viewVars['categories'][$i]->getSubtitle();?>
                   <i class="fa-arrow-right fa ml-2"></i></a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
-            <div class="card border-0 text-center text-dark">
-              <img src="images/categ1.jpeg"
-                alt="Card image" class="card-img">
-              <div class="card-img-overlay d-flex align-items-center">
-                <div class="w-100">
-                  <h2 class="display-4 mb-4">Détente</h2>
-                  <a href="./category" class="btn btn-link text-dark">Se faire plaisir
-                    <i class="fa-arrow-right fa ml-2"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        <div class="col-lg-4">
-          <div class="card border-0 text-center text-white"><img src="images/categ3.jpeg"
-              alt="Card image" class="card-img">
-            <div class="card-img-overlay d-flex align-items-center">
-              <div class="w-100">
-                <h2 class="display-4 mb-4">Cérémonie</h2><a href="./category" class="btn btn-link text-white">Bien choisir <i class="fa-arrow-right fa ml-2"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
+        <?php endfor;?>
       </div>
     </div>
   </section>

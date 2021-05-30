@@ -102,7 +102,67 @@ class Product extends CoreModel
         return $product;
     }
 
-  
+    public function findAllToSameCateg(int $id)
+    {
+        $sql = "SELECT product.*, brand.name AS brand_name, category.name AS category_name, type.name AS type_name
+        FROM `product`
+        INNER JOIN brand ON product.brand_id = brand.id
+        LEFT JOIN category ON product.category_id = category.id
+        INNER JOIN type ON product.type_id = type.id
+        WHERE category.id = {$id}";
+        
+        // On récupère la connexion à PDO
+        $pdo = Database::getPDO();
+
+        // On exécute la requête
+        $pdoStatement = $pdo->query($sql);
+
+        // On récupère un objet de type Product
+        $products = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Product');
+
+        // On le renvoie
+        return $products;
+    }
+
+    public function findAllToSameType(int $id)
+    {
+        $sql = "SELECT product.*, category.name AS category_name
+        FROM `product`
+        LEFT JOIN category ON product.category_id = category.id
+        WHERE type_id = {$id}";
+        
+        // On récupère la connexion à PDO
+        $pdo = Database::getPDO();
+
+        // On exécute la requête
+        $pdoStatement = $pdo->query($sql);
+
+        // On récupère un objet de type Product
+        $products = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Product');
+
+        // On le renvoie
+        return $products;
+    }
+
+    public function findAllToSameBrand(int $id)
+    {
+        $sql = "SELECT product.*, category.name AS category_name
+        FROM `product`
+        LEFT JOIN category ON product.category_id = category.id
+        WHERE brand_id = {$id}";
+        
+        // On récupère la connexion à PDO
+        $pdo = Database::getPDO();
+
+        // On exécute la requête
+        $pdoStatement = $pdo->query($sql);
+
+        // On récupère un objet de type Product
+        $products = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Product');
+
+        // On le renvoie
+        return $products;
+    }
     /**
      * Get the value of name
      */ 

@@ -7,7 +7,13 @@ class MainController extends CoreController
     // Page d'accueil
     public function home()
     {
-        $viewVars=[];
+
+        $categoryModel= new Category();
+        $categories = $categoryModel->findAllForHome();
+        //dd($categories);
+        $viewVars=[
+            'categories'=> $categories
+        ];
         // On appelle la méthode qui affiche le template
         $this->show('home',$viewVars);
     }

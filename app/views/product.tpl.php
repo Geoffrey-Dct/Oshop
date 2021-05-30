@@ -28,11 +28,17 @@
             <h3 class="h3 text-uppercase mb-1"><?=$product->getName()?></h3>
             <div class="text-muted">by <em><?=$product->brand_name?></em></div>
             <div>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
+              <?php 
+              for ($i = 1 ; $i <=5; $i++):?>
+
+              <?php if($product->getRate() >=$i):?> 
+                 <i class="fa fa-star"></i>
+              
+              <?php else:?>
+                <i class="fa fa-star-o"></i>
+                <?php endif;
+                endfor;?>
+              
             </div>
           </div>
           <div class="my-2">

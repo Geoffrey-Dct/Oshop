@@ -68,6 +68,25 @@
         return $categories;
     }
 
+    public function findAllForHome()
+    {
+        // requète pour un produit
+        $sql = "SELECT * FROM category
+               ORDER BY `home_order`";
+
+
+        // On récupère la connexion à PDO
+        $pdo = Database::getPDO();
+
+        // On exécute la requête
+        $pdoStatement = $pdo->query($sql);
+
+        // On récupère un objet de type Product
+        $categories = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'category');
+
+        // On le renvoie
+        return $categories;
+    }
      
     
 
